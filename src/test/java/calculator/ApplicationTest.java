@@ -24,6 +24,38 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 쉼표_콜론_테스트(){
+        assertSimpleTest(() -> {
+            run("1,2:3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
+    void 쉼표_테스트(){
+        assertSimpleTest(() -> {
+            run("1,2,3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
+    void 콜론_테스트(){
+        assertSimpleTest(() -> {
+            run("1;2;3");
+            assertThat(output()).contains("결과 : 6");
+        });
+    }
+
+    @Test
+    void 공백_테스트(){
+        assertSimpleTest(() -> {
+            run("");
+            assertThat(output()).contains("결과 : 0");
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
