@@ -43,7 +43,7 @@ class ApplicationTest extends NsTest {
     @Test
     void 콜론_테스트(){
         assertSimpleTest(() -> {
-            run("1;2;3");
+            run("1:2:3");
             assertThat(output()).contains("결과 : 6");
         });
     }
